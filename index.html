@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>图片合并为 PDF 工具</title>
+    <link rel="stylesheet" href="style.css" />
+    <!-- jsPDF CDN，用于前端生成 PDF -->
+    <script src="https://cdn.jsdelivr.net/npm/jspdf@2.5.1/dist/jspdf.umd.min.js"></script>
+  </head>
+  <body>
+    <div class="app">
+      <header class="app-header">
+        <h1>图片合并为 PDF</h1>
+        <p>纯前端本地处理，支持多选图片与预览。</p>
+      </header>
+
+      <main class="app-main">
+        <section class="uploader">
+          <label for="image-input" class="drop-zone" id="drop-zone">
+            <input
+              id="image-input"
+              type="file"
+              accept="image/*"
+              multiple
+              hidden
+            />
+            <div class="drop-zone-inner">
+              <span class="icon">📁</span>
+              <p class="title">点击选择或拖拽图片到这里</p>
+              <p class="hint">支持多选 JPG / PNG / GIF 等格式</p>
+            </div>
+          </label>
+
+          <div class="controls">
+            <button id="clear-btn" class="btn btn-secondary" type="button">
+              清空图片
+            </button>
+            <button id="download-btn" class="btn btn-primary" type="button">
+              生成 PDF 并下载
+            </button>
+          </div>
+        </section>
+
+        <section class="preview-section">
+          <h2>图片预览（按顺序合并）</h2>
+          <div id="preview-list" class="preview-list">
+            <div class="placeholder">还没有选择图片</div>
+          </div>
+        </section>
+      </main>
+
+      <footer class="app-footer">
+        <span>所有处理均在本地浏览器完成，不会上传到服务器。</span>
+      </footer>
+    </div>
+
+    <script src="main.js"></script>
+  </body>
+  </html>
+
+
